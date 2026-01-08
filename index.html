@@ -27,12 +27,30 @@
         <div id="flower-container"></div>
     
         <div class="ui-layer">
-            <button id="proceedToGame" class="hidden next-btn">Next: Let's Play ❤️</button>
+            <button id="proceedToGame" class="hidden next-btn" onclick="goToScene3()">Next: Let's Play ❤️</button>
         </div>
 
         <audio id="bgMusic" loop>
             <source src="lofi-music.mp3" type="audio/mpeg">
         </audio>
+    </div>
+
+    <div id="scene3" class="scene">
+        <div class="quiz-container">
+            <h2 id="question-text">Question goes here</h2>
+        
+            <div class="gif-container">
+                <img id="quiz-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJueWp2Z3R4bmZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6eGZ6ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/v6aOebdEGzeWJrU3L8/giphy.gif" alt="Cute Cat">
+            </div>
+
+            <div id="choices-grid" class="choices-grid">
+                </div>
+
+            <div id="answer-popup" class="popup hidden">
+                <p id="popup-text"></p>
+                <button id="next-question-btn">Next Question</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
