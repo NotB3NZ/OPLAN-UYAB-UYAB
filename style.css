@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5; /* Soft pink */
+    overflow: hidden;
+}
+
+.scene {
+    display: none;
+    text-align: center;
+}
+
+.scene.active {
+    display: block;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between Yes and No */
+    margin-top: 30px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#yesBtn {
+    background-color: #ff69b4;
+    color: white;
+    z-index: 1;
+}
+
+#noBtn {
+    background-color: #bdc3c7;
+    color: white;
+    /* We don't set fixed position here yet so it stays next to "Yes" */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+/* The "Pop" Animation */
+.pop-out {
+    animation: pop 0.4s forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
