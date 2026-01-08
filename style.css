@@ -206,3 +206,110 @@ button {
 #scene3.active {
     display: flex; /* Using flex here centers the quiz-container */
 }
+
+#scene4 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff0f5;
+    overflow: hidden;
+    
+    /* ADD THESE THREE LINES */
+    display: none; /* JS will change this to flex */
+    justify-content: center;
+    align-items: center;
+}
+
+/* The 3:4 Letter Box */
+.letter-box {
+    position: relative;
+    z-index: 10;
+    width: 350px; /* Adjust based on preference */
+    height: 466px; /* Maintains roughly 3:4 aspect ratio */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-letter-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.scrollable-text {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+    padding-right: 10px;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+.scrollable-text::-webkit-scrollbar {
+    width: 5px;
+}
+.scrollable-text::-webkit-scrollbar-thumb {
+    background: #ffb7c5;
+    border-radius: 10px;
+}
+
+/* Floating Photo Styling */
+.floating-photo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    opacity: 0.6;
+    animation: drift 15s linear infinite;
+}
+
+@keyframes drift {
+    from { transform: translateY(100vh) rotate(0deg); }
+    to { transform: translateY(-150px) rotate(360deg); }
+}
+
+/* Final Message Styling */
+.fade-in-text {
+    font-size: 2.5rem;
+    color: #ff69b4;
+    animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+#finalScene {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Or keep it pink #fff0f5 */
+}
+
+/* Ensure the Done Reading button is centered inside the letter box */
+#doneBtn {
+    margin-top: 15px;
+    background-color: #ff69b4;
+    color: white;
+    align-self: center; /* Centers the button horizontally in the flex column */
+}

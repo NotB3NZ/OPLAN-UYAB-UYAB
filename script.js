@@ -148,5 +148,41 @@ document.getElementById('next-question-btn').onclick = () => {
 };
 
 function showLetterScene() {
-    alert("Time for the letter! (We will code this next)");
+    document.getElementById('scene3').style.display = 'none';
+    const scene4 = document.getElementById('scene4');
+    
+    // Switch to flex so the centering works
+    scene4.style.display = 'flex'; 
+    scene4.classList.add('active');
+    
+    createFloatingPhotos();
+}
+
+function createFloatingPhotos() {
+    const container = document.getElementById('floating-photos-container');
+    // const photoUrls = [
+    //     'photo1.jpg', 'photo2.jpg', 'photo3.jpg' // Add your photo paths here
+    // ];
+    // PICTURE SHITS
+    const photoUrls = ['https://picsum.photos/200/200?random=1', 'https://picsum.photos/200/200?random=2'];
+
+    for (let i = 0; i < 15; i++) {
+        const img = document.createElement('img');
+        img.src = photoUrls[i % photoUrls.length];
+        img.classList.add('floating-photo');
+        
+        img.style.left = Math.random() * 100 + 'vw';
+        img.style.animationDelay = Math.random() * 10 + 's';
+        img.style.width = (50 + Math.random() * 70) + 'px';
+        img.style.height = img.style.width; // Keep it square
+
+        container.appendChild(img);
+    }
+}
+
+function finishEverything() {
+    document.getElementById('scene4').style.display = 'none';
+    const final = document.getElementById('finalScene');
+    final.style.display = 'flex';
+    final.classList.add('active');
 }
