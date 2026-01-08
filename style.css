@@ -59,3 +59,86 @@ button {
     50% { transform: scale(1.2); opacity: 1; }
     100% { transform: scale(0); opacity: 0; }
 }
+
+#flower-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fff0f5, #ffffff); /* Soft sky gradient */
+    overflow: hidden;
+}
+
+.tulip {
+    position: absolute;
+    bottom: -20px; /* Hide the base */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.stem {
+    width: 4px; /* Slightly thinner for more density */
+    background-color: #8ab98a;
+    height: 0;
+    transition: height 2s ease-out;
+    border-radius: 4px;
+}
+
+.flower-head {
+    width: 40px;
+    height: 50px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform: scale(0);
+    transition: transform 1s ease-out;
+    /* Subtle sway animation for a lo-fi feel */
+    animation: sway 3s infinite ease-in-out alternate;
+}
+
+@keyframes sway {
+    from { transform: rotate(-3deg) scale(1); }
+    to { transform: rotate(3deg) scale(1); }
+}
+
+.tulip.bloom .stem {
+    /* Height will be set via JavaScript for variety */
+}
+
+.tulip.bloom .flower-head {
+    transform: scale(1);
+}
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the button on screen */
+    pointer-events: none; /* Allows mouse to click through to flowers if needed */
+    z-index: 9999; /* Forces it to the very top */
+}
+
+.next-btn {
+    pointer-events: auto; /* Re-enables clicking for the button itself */
+    padding: 15px 40px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 1s, transform 0.3s;
+}
+
+.next-btn:hover {
+    transform: scale(1.05);
+}
+
+.next-btn.show {
+    opacity: 1;
+}
