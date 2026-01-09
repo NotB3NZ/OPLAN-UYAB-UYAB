@@ -173,21 +173,29 @@ function showLetterScene() {
 
 function createFloatingPhotos() {
     const container = document.getElementById('floating-photos-container');
-    // const photoUrls = [
-    //     'photo1.jpg', 'photo2.jpg', 'photo3.jpg' // Add your photo paths here
-    // ];
-    // PICTURE SHITS
-    const photoUrls = ['https://picsum.photos/200/200?random=1', 'https://picsum.photos/200/200?random=2'];
+    
+    // Replace these with your actual filenames (now read from IMAGES/ folder)
+    const photoUrls = [
+        'IMAGES/1.jpg', 'IMAGES/2.jpg', 'IMAGES/3.jpg', 'IMAGES/4.jpg', 'IMAGES/5.jpg', 'IMAGES/6.jpg', 'IMAGES/7.jpg'
+    ];
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 15; i++) { // Creating 15 floating instances
         const img = document.createElement('img');
         img.src = photoUrls[i % photoUrls.length];
         img.classList.add('floating-photo');
         
+        // Randomize spawn across the screen width
         img.style.left = Math.random() * 100 + 'vw';
-        img.style.animationDelay = Math.random() * 10 + 's';
-        img.style.width = (50 + Math.random() * 70) + 'px';
-        img.style.height = img.style.width; // Keep it square
+        
+        // Randomize speed and delay for organic movement
+        const duration = 10 + Math.random() * 10;
+        img.style.animationDuration = duration + 's';
+        img.style.animationDelay = Math.random() * 5 + 's';
+        
+        // Vary sizes slightly
+        const size = 80 + Math.random() * 40;
+        img.style.width = size + 'px';
+        img.style.height = 'auto'; // Preserves aspect ratio
 
         container.appendChild(img);
     }
