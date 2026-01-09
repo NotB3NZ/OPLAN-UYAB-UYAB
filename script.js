@@ -89,22 +89,26 @@ const questions = [
     {
         q: "What was your favorite place we ate at?",
         options: ["JH Garden Cafe", "Coze Cat Cafe", "Dirty Sanchez", "Love, Luka"],
-        myAnswer: "Dirty Sanchez"
+        myAnswer: "Dirty Sanchez",
+        gif: "https://i.pinimg.com/originals/a4/81/1d/a4811dcfd85b23cdd91ceb1ea9b959d6.gif" // Thinking
     },
     {
         q: "What was your favourite food made by me?",
         options: ["Lasagna", "Revel Bars", "Cinnamon Roll", "Brownies"],
-        myAnswer: "Cinnamon Roll"
+        myAnswer: "Cinnamon Roll",
+        gif: "https://i.pinimg.com/originals/34/a0/39/34a039952e2bdc887ff3383f23b8fccd.gif" // Happy Cat
     },
     {
         q: "What is your favourite date activity?",
         options: ["Origami", "Diamond Painting", "Museum Bingo", "Roblox"],
-        myAnswer: "Museum Bingo"
+        myAnswer: "Museum Bingo",
+        gif: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWx1bXdvOGNhdzU2eHRvcXY4NHM4cGJvenV5ZnhlbGdsMzNoaHJzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y3QOvy7xxMwKI/giphy.gif" // Activity/Bingo
     },
     {
         q: "Whats your favourite gift from me so far?",
         options: ["Ariana Grande Perfume", "Explosion Box", "Bibble Plush", "Watch"],
-        myAnswer: "Ariana Grande Perfume"
+        myAnswer: "Ariana Grande Perfume",
+        gif: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnBtMW8wemsxOW8ycngza2N3N2hzYmF6OG1haHgycDhnMmkzZW43bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W8hVGGjOjV82Rh6Oyi/giphy.gif" // Gift/Perfume
     }
 ];
 
@@ -113,6 +117,11 @@ let currentQuestionIndex = 0;
 function loadQuestion() {
     const currentQ = questions[currentQuestionIndex];
     document.getElementById('question-text').innerText = currentQ.q;
+    
+    // Update the GIF!
+    const quizGif = document.getElementById('quiz-gif');
+    quizGif.src = currentQ.gif;
+
     const grid = document.getElementById('choices-grid');
     grid.innerHTML = ''; 
 
@@ -132,9 +141,9 @@ function handleChoice(choice) {
 
     // Check if her choice matches your pick
     if (choice === myAnswer) {
-        popupText.innerText = `You picked ${choice}! OMG, that was my pick too! 🥰`;
+        popupText.innerText = `You picked ${choice}! EYYY KANA SAD AKO🔥🔥🔥`;
     } else {
-        popupText.innerText = `You picked ${choice}! Wow! Mine was actually ${myAnswer}!`;
+        popupText.innerText = `You picked ${choice}! Ngekk ako kay ${myAnswer}!`;
     }
     
     popup.classList.add('show');
