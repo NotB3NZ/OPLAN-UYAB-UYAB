@@ -78,7 +78,7 @@ button {
 }
 
 .stem {
-    width: 4px; /* Slightly thinner for more density */
+    width: 3px; /* Slightly thinner for more density */
     background-color: #8ab98a;
     height: 0;
     transition: height 2s ease-out;
@@ -92,7 +92,14 @@ button {
     transform: scale(0);
     transition: transform 1s ease-out;
     /* Subtle sway animation for a lo-fi feel */
+    height: 45px; /* Slightly smaller to fit the density */
     animation: sway 3s infinite ease-in-out alternate;
+}
+
+/* Add this to make them look more natural */
+.tulip:nth-child(even) .flower-head {
+    animation-duration: 4s;
+    animation-delay: 1s;
 }
 
 @keyframes sway {

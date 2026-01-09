@@ -37,23 +37,26 @@ function startTulipAnimation() {
     music.play().catch(e => console.log("Audio play blocked"));
 
     const colors = ['#ffb7c5', '#f2a2e8', '#ff9aa2', '#c7ceea', '#ff8b94', '#ffd1dc'];
-    const totalTulips = 50;
+    const totalTulips = 200; // Increased to 200
 
     for (let i = 0; i < totalTulips; i++) {
         const tulip = document.createElement('div');
         tulip.classList.add('tulip');
-        const randomLeft = Math.random() * 100;
-        const randomHeight = 150 + Math.random() * 250;
-        const randomDelay = Math.random() * 3000;
-        const color = colors[Math.floor(Math.random() * colors.length)];
         
+        const randomLeft = Math.random() * 100; 
+        const randomHeight = 100 + Math.random() * 350; // More variation in height
+        const randomDelay = Math.random() * 4000; // Spread growth over 4 seconds
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const randomWidth = 30 + Math.random() * 20; // Random head size
+
         tulip.style.left = `${randomLeft}vw`;
         tulip.style.zIndex = Math.floor(randomHeight);
         
         tulip.innerHTML = `
-            <div class="flower-head" style="background-color: ${color}; transition-delay: ${randomDelay + 1000}ms;"></div>
+            <div class="flower-head" style="background-color: ${color}; width: ${randomWidth}px; transition-delay: ${randomDelay + 1000}ms;"></div>
             <div class="stem" style="height: 0; transition-delay: ${randomDelay}ms;"></div>
         `;
+        
         container.appendChild(tulip);
 
         setTimeout(() => {
@@ -62,11 +65,12 @@ function startTulipAnimation() {
         }, 100);
     }
 
+    // Keep the "Next" button delay so she can appreciate the full garden
     setTimeout(() => {
         const nextBtn = document.getElementById('proceedToGame');
         nextBtn.classList.remove('hidden');
         nextBtn.classList.add('show');
-    }, 5000);
+    }, 6000); 
 }
 
 // --- SCENE 3 LOGIC (Moved outside of startTulipAnimation) ---
