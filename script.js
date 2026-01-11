@@ -106,7 +106,7 @@ const questions = [
     },
     {
         q: "Whats your favourite gift from me so far?",
-        options: ["Ariana Grande Perfume", "Explosion Box", "Bibble Plush", "Watch"],
+        options: ["Ariana Grande Perfume", "Explosion Box", "Bibble Plush", "Vice Cosmetics Brush Set"],
         myAnswer: "Ariana Grande Perfume",
         gif: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnBtMW8wemsxOW8ycngza2N3N2hzYmF6OG1haHgycDhnMmkzZW43bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W8hVGGjOjV82Rh6Oyi/giphy.gif" // Gift/Perfume
     }
@@ -141,9 +141,9 @@ function handleChoice(choice) {
 
     // Check if her choice matches your pick
     if (choice === myAnswer) {
-        popupText.innerText = `You picked ${choice}! EYYY KANA SAD AKO🔥🔥🔥`;
+        popupText.innerText = `YOOOOO ${choice} sa imo?? EYYY KANA SAD AKO🔥🔥🔥`;
     } else {
-        popupText.innerText = `You picked ${choice}! Ngekk ako kay ${myAnswer}!`;
+        popupText.innerText = `Di ta match sa ${choice} kay akoa is ${myAnswer}😔😔😔`;
     }
     
     popup.classList.add('show');
